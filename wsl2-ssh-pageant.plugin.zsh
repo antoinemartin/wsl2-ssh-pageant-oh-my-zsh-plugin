@@ -18,8 +18,6 @@ if ! ps aux | grep -q "[0-9] socat UNIX-LISTEN:$SSH_AUTH_SOCK"; then
   else
     echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
   fi
-else 
-    echo "socat for ssh running"
 fi
 
 export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
@@ -39,8 +37,6 @@ if ! ps aux | grep -q "[0-9] socat UNIX-LISTEN:$GPG_AGENT_SOCK"; then
     echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
   fi
   unset windows_username config_path
-else 
-    echo "socat for gpg running"
 fi
 
 unset wsl2_ssh_pageant_bin
