@@ -23,7 +23,7 @@ fi
 export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
 if ! ps aux | grep -q "[0-9] socat UNIX-LISTEN:$GPG_AGENT_SOCK"; then
   rm -rf "$GPG_AGENT_SOCK"
-  windows_username=$(cmd.exe /c echo %USERNAME% 2>/dev/null | tr -d '\r')
+  windows_username=$(/mnt/c/Windows/System32/cmd.exe /c echo %USERNAME% 2>/dev/null | tr -d '\r')
   # When gpg4win is installed with scoop, the pipe is in the local directory
   if [ -d "/mnt/c/Users/$windows_username/AppData/Local/gnupg" ]; then
     config_path="C\:/Users/$windows_username/AppData/Local/gnupg"
